@@ -5,7 +5,7 @@
     <string name="title_activity_new_routine">NewRoutineActivity</string>
     <string name="initial_num_workouts_new_routine">0</string>
     <string name="num_workouts_label_new_routine">How many workouts?</string>
-    <string name="workouts_order_label_new_routine">Workout Schedule</string>
+    <string name="workouts_order_label_new_routine">Schedule</string>
     <string name="action_settings">Settings</string>
 
 </resources>

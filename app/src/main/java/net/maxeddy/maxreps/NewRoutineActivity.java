@@ -15,15 +15,10 @@ import java.util.List;
 public class NewRoutineActivity extends Activity {
 
     private SeekBar numWorkoutsSlider;
-    private TextView numWorkouts;
+    private TextView numWorkoutsText;
+    private int numWorkouts;
+    private String[] workoutLabels = {"A", "B", "C", "D", "E", "F", "G"};
     private Spinner[] days = new Spinner[7];
-    private Spinner dayOne;
-    private Spinner dayTwo;
-    private Spinner dayThree;
-    private Spinner dayFour;
-    private Spinner dayFive;
-    private Spinner daySix;
-    private Spinner daySeven;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +31,7 @@ public class NewRoutineActivity extends Activity {
 
     private void initializeViews() {
         numWorkoutsSlider = (SeekBar)findViewById(R.id.numWorkoutsSlider);
-        numWorkouts = (TextView)findViewById(R.id.numWorkouts);
+        numWorkoutsText = (TextView)findViewById(R.id.numWorkoutsText);
         days[0] = (Spinner)findViewById(R.id.dayOne);
         days[1] = (Spinner)findViewById(R.id.dayTwo);
         days[2] = (Spinner)findViewById(R.id.dayThree);
@@ -51,7 +46,9 @@ public class NewRoutineActivity extends Activity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                numWorkouts.setText(Integer.toString(progress));
+                numWorkoutsText.setText(Integer.toString(progress));
+                numWorkouts = progress;
+                setupWorkoutSchedule();
             }
 
             @Override
@@ -69,13 +66,9 @@ public class NewRoutineActivity extends Activity {
     private void setupWorkoutSchedule() {
         List<String> list = new ArrayList<String>();
         list.add("Off");
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
-        list.add("E");
-        list.add("F");
-        list.add("G");
+        for (int i = 0; i < numWorkouts; i++) {
+            list.add(workoutLabels[i]);
+        }
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item,
@@ -87,7 +80,6 @@ public class NewRoutineActivity extends Activity {
             days[i].setAdapter(dataAdapter);
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

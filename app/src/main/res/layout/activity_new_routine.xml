@@ -34,7 +34,7 @@
             android:layout_weight="0.2"
             android:text="@string/initial_num_workouts_new_routine"
             android:textSize="16sp"
-            android:id="@+id/numWorkouts" />
+            android:id="@+id/numWorkoutsText" />
 
     </LinearLayout>
 
