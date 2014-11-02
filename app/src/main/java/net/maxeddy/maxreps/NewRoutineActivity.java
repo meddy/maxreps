@@ -16,7 +16,7 @@ public class NewRoutineActivity extends Activity {
 
     private SeekBar numWorkoutsSlider;
     private TextView numWorkoutsText;
-    private int numWorkouts;
+    private int numWorkouts = 1;
     private String[] workoutLabels = {"A", "B", "C", "D", "E", "F", "G"};
     private Spinner[] days = new Spinner[7];
 
@@ -26,7 +26,7 @@ public class NewRoutineActivity extends Activity {
         setContentView(R.layout.activity_new_routine);
         initializeViews();
         setupNumWorkoutsSlider();
-        setupWorkoutSchedule();
+        updateWorkoutScheduleValues();
     }
 
     private void initializeViews() {
@@ -46,9 +46,9 @@ public class NewRoutineActivity extends Activity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                numWorkoutsText.setText(Integer.toString(progress));
-                numWorkouts = progress;
-                setupWorkoutSchedule();
+                numWorkoutsText.setText(Integer.toString(progress + 1));
+                numWorkouts = progress + 1;
+                updateWorkoutScheduleValues();
             }
 
             @Override
@@ -63,12 +63,13 @@ public class NewRoutineActivity extends Activity {
         });
     }
 
-    private void setupWorkoutSchedule() {
+    private void updateWorkoutScheduleValues() {
         List<String> list = new ArrayList<String>();
         list.add("Off");
-        for (int i = 0; i < numWorkouts; i++) {
+        for (int i = 0; i < numWorkouts && i < workoutLabels.length; i++) {
             list.add(workoutLabels[i]);
         }
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item,
@@ -76,8 +77,8 @@ public class NewRoutineActivity extends Activity {
         );
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        for (int i = 0; i < days.length; i++) {
-            days[i].setAdapter(dataAdapter);
+        for (Spinner day: days) {
+            day.setAdapter(dataAdapter);
         }
     }
 

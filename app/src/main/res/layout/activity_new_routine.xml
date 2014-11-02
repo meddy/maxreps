@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/num_workouts_label_new_routine"
+        android:text="@string/new_routine_num_workouts_label"
         android:id="@+id/textView" />
 
     <LinearLayout
@@ -25,14 +25,14 @@
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:id="@+id/numWorkoutsSlider"
-            android:max="7"/>
+            android:max="6"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.2"
-            android:text="@string/initial_num_workouts_new_routine"
+            android:text="@string/new_routine_num_workouts_text"
             android:textSize="16sp"
             android:id="@+id/numWorkoutsText" />
 
@@ -42,42 +42,175 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/workouts_order_label_new_routine" />
+        android:text="@string/new_routine_schedule_label" />
 
-    <Spinner
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayOne" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_one_label"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:id="@+id/dayOne" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayTwo" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_two_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/dayTwo" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayThree" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_three_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/dayThree" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayFour" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_four_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/dayFour" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayFive" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_five_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/dayFive" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/daySix" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
-    <Spinner
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_six_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/daySix" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/daySeven" />
+        android:orientation="horizontal"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:text="@string/new_routine_day_seven_label"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/daySeven" />
+
+    </LinearLayout>
 
 </LinearLayout>

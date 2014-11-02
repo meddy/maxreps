@@ -2,10 +2,19 @@
 <resources>
 
     <string name="app_name">MaxReps</string>
-    <string name="title_activity_new_routine">NewRoutineActivity</string>
-    <string name="initial_num_workouts_new_routine">0</string>
-    <string name="num_workouts_label_new_routine">How many workouts?</string>
-    <string name="workouts_order_label_new_routine">Schedule</string>
+
+    <!-- NewRoutineActivity -->
+    <string name="new_routine_title">Create New Routine</string>
+    <string name="new_routine_num_workouts_text">1</string>
+    <string name="new_routine_num_workouts_label">How many workouts?</string>
+    <string name="new_routine_schedule_label">Schedule</string>
+    <string name="new_routine_day_one_label">Day One</string>
+    <string name="new_routine_day_two_label">Day Two</string>
+    <string name="new_routine_day_three_label">Day Three</string>
+    <string name="new_routine_day_four_label">Day Four</string>
+    <string name="new_routine_day_five_label">Day Five</string>
+    <string name="new_routine_day_six_label">Day Six</string>
+    <string name="new_routine_day_seven_label">Day Seven</string>
     <string name="action_settings">Settings</string>
 
 </resources>
