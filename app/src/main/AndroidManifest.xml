@@ -7,8 +7,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="net.maxeddy.maxreps.NewRoutineActivity"
-            android:label="@string/new_routine_title" >
+            android:name="net.maxeddy.maxreps.EditRoutineActivity"
+            android:label="@string/edit_routine_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

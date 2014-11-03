@@ -6,43 +6,60 @@
     android:paddingTop="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context="net.maxeddy.maxreps.NewRoutineActivity">
+    tools:context="net.maxeddy.maxreps.EditRoutineActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/edit_routine_cycle_length_label" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton android:id="@+id/cycle_length_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_routine_cycle_length_one"
+            android:onClick="onCycleLengthRadioButtonClick"/>
+        <RadioButton android:id="@+id/cycle_length_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_routine_cycle_length_two"
+            android:onClick="onCycleLengthRadioButtonClick"/>
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/new_routine_num_workouts_label"
-        android:id="@+id/textView" />
+        android:text="@string/edit_routine_num_workouts_label" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <SeekBar
             android:layout_width="0dp"
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:id="@+id/numWorkoutsSlider"
             android:max="6"/>
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.2"
-            android:text="@string/new_routine_num_workouts_text"
+            android:text="@string/edit_routine_num_workouts_text"
             android:textSize="16sp"
             android:id="@+id/numWorkoutsText" />
-
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/new_routine_schedule_label" />
+        android:text="@string/edit_routine_schedule_label" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,22 +67,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_one_label"
+            android:text="@string/edit_routine_day_one_label"
             android:textSize="16sp"
             android:textStyle="bold"/>
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="0.5"
             android:id="@+id/dayOne" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -74,22 +88,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_two_label"
+            android:text="@string/edit_routine_day_two_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/dayTwo" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -98,22 +109,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_three_label"
+            android:text="@string/edit_routine_day_three_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/dayThree" />
-
     </LinearLayout>
 
 
@@ -123,22 +131,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_four_label"
+            android:text="@string/edit_routine_day_four_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/dayFour" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -147,22 +152,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_five_label"
+            android:text="@string/edit_routine_day_five_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/dayFive" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -171,22 +173,19 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_six_label"
+            android:text="@string/edit_routine_day_six_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/daySix" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -195,22 +194,18 @@
         android:orientation="horizontal"
         android:paddingLeft="64dp"
         android:paddingRight="64dp">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="0.5"
-            android:text="@string/new_routine_day_seven_label"
+            android:text="@string/edit_routine_day_seven_label"
             android:textSize="16sp"
             android:textStyle="bold" />
-
         <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:id="@+id/daySeven" />
-
     </LinearLayout>
-
 </LinearLayout>

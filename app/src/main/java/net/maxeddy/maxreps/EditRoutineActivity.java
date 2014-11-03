@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewRoutineActivity extends Activity {
+public class EditRoutineActivity extends Activity {
 
     private SeekBar numWorkoutsSlider;
     private TextView numWorkoutsText;
@@ -23,7 +24,7 @@ public class NewRoutineActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_routine);
+        setContentView(R.layout.activity_edit_routine);
         initializeViews();
         setupNumWorkoutsSlider();
         updateWorkoutScheduleValues();
@@ -82,10 +83,14 @@ public class NewRoutineActivity extends Activity {
         }
     }
 
+    public void onCycleLengthRadioButtonClick(View view) {
+        // TODO: Implement
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_new_routine, menu);
+        getMenuInflater().inflate(R.menu.menu_edit_routine, menu);
         return true;
     }
 
