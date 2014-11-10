@@ -12,12 +12,5 @@
     <string name="edit_routine_num_workouts_text">1</string>
     <string name="edit_routine_num_workouts_label">How many workouts?</string>
     <string name="edit_routine_schedule_label">Schedule</string>
-    <string name="edit_routine_day_one_label">Day One</string>
-    <string name="edit_routine_day_two_label">Day Two</string>
-    <string name="edit_routine_day_three_label">Day Three</string>
-    <string name="edit_routine_day_four_label">Day Four</string>
-    <string name="edit_routine_day_five_label">Day Five</string>
-    <string name="edit_routine_day_six_label">Day Six</string>
-    <string name="edit_routine_day_seven_label">Day Seven</string>
 
 </resources>

@@ -1,25 +1,28 @@
 package net.maxeddy.maxreps;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EditRoutineActivity extends Activity {
 
     private SeekBar numWorkoutsSlider;
     private TextView numWorkoutsText;
+    private ListView daysList;
     private int numWorkouts = 1;
     private String[] workoutLabels = {"A", "B", "C", "D", "E", "F", "G"};
-    private Spinner[] days = new Spinner[7];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +30,13 @@ public class EditRoutineActivity extends Activity {
         setContentView(R.layout.activity_edit_routine);
         initializeViews();
         setupNumWorkoutsSlider();
-        updateWorkoutScheduleValues();
+        updateScheduleDayList();
     }
 
     private void initializeViews() {
         numWorkoutsSlider = (SeekBar)findViewById(R.id.numWorkoutsSlider);
         numWorkoutsText = (TextView)findViewById(R.id.numWorkoutsText);
-        days[0] = (Spinner)findViewById(R.id.dayOne);
-        days[1] = (Spinner)findViewById(R.id.dayTwo);
-        days[2] = (Spinner)findViewById(R.id.dayThree);
-        days[3] = (Spinner)findViewById(R.id.dayFour);
-        days[4] = (Spinner)findViewById(R.id.dayFive);
-        days[5] = (Spinner)findViewById(R.id.daySix);
-        days[6] = (Spinner)findViewById(R.id.daySeven);
+        daysList = (ListView)findViewById(R.id.daysList);
     }
 
     private void setupNumWorkoutsSlider() {
@@ -64,8 +61,12 @@ public class EditRoutineActivity extends Activity {
         });
     }
 
+    public void onCycleLengthRadioButtonClick(View view) {
+        // TODO: Implement
+    }
+
     private void updateWorkoutScheduleValues() {
-        List<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<String>();
         list.add("Off");
         for (int i = 0; i < numWorkouts && i < workoutLabels.length; i++) {
             list.add(workoutLabels[i]);
@@ -78,13 +79,42 @@ public class EditRoutineActivity extends Activity {
         );
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        for (Spinner day: days) {
-            day.setAdapter(dataAdapter);
-        }
+        Spinner daySpinner = (Spinner)daysList.findViewById(R.id.daySpinner);
+        daySpinner.setAdapter(dataAdapter);
     }
 
-    public void onCycleLengthRadioButtonClick(View view) {
-        // TODO: Implement
+    private void updateScheduleDayList() {
+        ArrayList<Day> days = new ArrayList<Day>();
+        int cycleLength = 1;
+        int numDays = cycleLength * 7;
+        for(int i = 1; i <= numDays; i++) {
+            days.add(new Day(i, "off"));
+        }
+
+        DayListAdapter dayAdapter = new DayListAdapter(this, days);
+        daysList.setAdapter(dayAdapter);
+    }
+
+    private class DayListAdapter extends ArrayAdapter<Day> {
+        ArrayList<Day> items;
+
+        public DayListAdapter(Context context, ArrayList<Day> items) {
+            super(context, 0, items);
+            this.items = items;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.edit_routine_day_item, parent, false);
+            }
+
+            Day day = items.get(position);
+            TextView dayLabel = (TextView)convertView.findViewById(R.id.dayLabel);
+            dayLabel.setText(day.getLabel());
+
+            return convertView;
+        }
     }
 
     @Override
