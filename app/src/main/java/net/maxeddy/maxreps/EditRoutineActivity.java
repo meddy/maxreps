@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class EditRoutineActivity extends Activity {
     private ListView daysList;
     private int numWorkouts = 1;
     private String[] workoutLabels = {"A", "B", "C", "D", "E", "F", "G"};
+    private int cycleLength = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +63,15 @@ public class EditRoutineActivity extends Activity {
         });
     }
 
-    public void onCycleLengthRadioButtonClick(View view) {
-        // TODO: Implement
+    private void updateScheduleDayList() {
+        ArrayList<Day> days = new ArrayList<Day>();
+        int numDays = cycleLength * 7;
+        for(int i = 1; i <= numDays; i++) {
+            days.add(new Day(i, "off"));
+        }
+
+        DayListAdapter dayAdapter = new DayListAdapter(this, days);
+        daysList.setAdapter(dayAdapter);
     }
 
     private void updateWorkoutScheduleValues() {
@@ -83,20 +92,9 @@ public class EditRoutineActivity extends Activity {
         daySpinner.setAdapter(dataAdapter);
     }
 
-    private void updateScheduleDayList() {
-        ArrayList<Day> days = new ArrayList<Day>();
-        int cycleLength = 1;
-        int numDays = cycleLength * 7;
-        for(int i = 1; i <= numDays; i++) {
-            days.add(new Day(i, "off"));
-        }
-
-        DayListAdapter dayAdapter = new DayListAdapter(this, days);
-        daysList.setAdapter(dayAdapter);
-    }
-
     private class DayListAdapter extends ArrayAdapter<Day> {
-        ArrayList<Day> items;
+
+        private ArrayList<Day> items;
 
         public DayListAdapter(Context context, ArrayList<Day> items) {
             super(context, 0, items);
@@ -105,7 +103,9 @@ public class EditRoutineActivity extends Activity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater)getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE
+                );
                 convertView = inflater.inflate(R.layout.edit_routine_day_item, parent, false);
             }
 
@@ -115,6 +115,24 @@ public class EditRoutineActivity extends Activity {
 
             return convertView;
         }
+    }
+
+    public void onCycleLengthRadioButtonClick(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        if (!checked) {
+            return;
+        }
+
+        switch (view.getId()) {
+            case R.id.cycle_length_one:
+                cycleLength = 1;
+                break;
+
+            case R.id.cycle_length_two:
+                cycleLength = 2;
+                break;
+        }
+        updateScheduleDayList();
     }
 
     @Override
